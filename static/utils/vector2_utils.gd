@@ -2,7 +2,6 @@ class_name Vector2Utils
 extends Node
 
 
-
 static func smooth_to(
 	current: Vector2, target: Vector2, smoothing: bool = true, weight: float = 0.5
 ) -> Vector2:
