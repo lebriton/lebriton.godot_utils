@@ -84,3 +84,7 @@ static func has_duplicates(array: Array) -> bool:
 			return true
 		seen[item] = true
 	return false
+
+
+static func remove_freed_items(array: Array) -> Array:
+	return array.filter(func(item): return is_instance_valid(item))
