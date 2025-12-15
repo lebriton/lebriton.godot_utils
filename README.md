@@ -1,5 +1,7 @@
 # Bryton's GDScript Utils
 
+![Icon](raw/icon.png)
+
 A collection of utility scripts written in GDScript for Godot 4. This addon contains various helper functions and utilities that I constantly reuse and copy/paste between different projects. Over time, the collection grew large enough to extract into its own addon for better reusability.
 
 ## Status
@@ -54,6 +56,10 @@ var offset = GeometryUtils.compute_aligned_offset(Types.AnchorsPreset CENTER, Ve
 ## License
 
 See LICENSE file for details.
+
+## Credit
+
+<a href="https://www.flaticon.com/free-icons/script" title="script icons">Script icons created by surang - Flaticon</a>
 
 ## Contributing
 
