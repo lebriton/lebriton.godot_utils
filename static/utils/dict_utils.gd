@@ -1,5 +1,5 @@
 class_name DictUtils
-extends Node
+extends Object
 
 
 static func pop_key(dict: Dictionary, key: Variant, default: Variant = null) -> Variant:

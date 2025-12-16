@@ -1,5 +1,5 @@
 class_name GroupUtils
-extends Node
+extends Object
 
 
 static func get_all_groups(node: Node) -> Array[StringName]:

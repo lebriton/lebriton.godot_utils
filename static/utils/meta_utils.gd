@@ -1,5 +1,5 @@
 class_name MetaUtils
-extends Node
+extends Object
 
 
 static func set_dict(obj: Object, dict: Dictionary):

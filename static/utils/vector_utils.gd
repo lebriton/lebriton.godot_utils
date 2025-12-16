@@ -1,5 +1,5 @@
 class_name VectorUtils
-extends Node
+extends Object
 
 
 static func vec2_to_3(vector: Vector2, y: float = 0.0) -> Vector3:

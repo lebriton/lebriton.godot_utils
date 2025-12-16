@@ -1,5 +1,5 @@
 class_name ArrayUtils
-extends Node
+extends Object
 
 
 static func enumerate_duplicates(strings: Array) -> Array[String]:

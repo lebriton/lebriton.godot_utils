@@ -1,5 +1,5 @@
 class_name TweenUtils
-extends Node
+extends Object
 
 
 static func is_tween_running(tween: Tween) -> bool:

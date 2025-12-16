@@ -1,5 +1,5 @@
 class_name StringUtils
-extends Node
+extends Object
 
 const SEPARATOR := ":"
 

@@ -1,5 +1,5 @@
 class_name GeometryUtils
-extends Node
+extends Object
 
 
 static func compute_aligned_offset(anchors_preset: Types.AnchorsPreset, size: Vector2) -> Vector2:

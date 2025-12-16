@@ -1,5 +1,5 @@
 class_name Vector2Utils
-extends Node
+extends Object
 
 
 static func smooth_to(

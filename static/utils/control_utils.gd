@@ -1,5 +1,5 @@
 class_name ControlUtils
-extends Node
+extends Object
 
 
 static func connect_neighbors(nodes: Array, direction: Types.Direction, loop: bool):

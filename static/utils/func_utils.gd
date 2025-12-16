@@ -1,5 +1,5 @@
 class_name FuncUtils
-extends Node
+extends Object
 
 
 static func bind_front(callable: Callable, ...args: Array):

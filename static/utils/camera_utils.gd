@@ -1,5 +1,5 @@
 class_name CameraUtils
-extends Node
+extends Object
 
 
 static func project_on_plane(camera: Camera3D, position: Vector2, y_lock: float = 0.0) -> Vector3:
