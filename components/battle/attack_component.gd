@@ -7,6 +7,7 @@ signal defenders_changed(defenders: Array[HealthComponent])
 @export var character: Character
 
 @export_group("Parameters")
+@export var auto_cleanup := true
 
 var _defenders: Array[HealthComponent]
 
@@ -28,6 +29,9 @@ func attack(damage_callable: Callable, amount = -1):
 
 
 func track(health_component: HealthComponent):
+	if auto_cleanup:
+		health_component.died.connect(untrack.bind(health_component))
+
 	_defenders.append(health_component)
 	defenders_changed.emit(_defenders)
 

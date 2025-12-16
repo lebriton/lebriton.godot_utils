@@ -7,16 +7,33 @@ signal full_health_restored
 signal healed(result: ValueChangeResult)
 signal health_changed  # TODO: stop signal spam
 
-@export var maximum_health: int = 9999:
+@export var maximum_health: int = 999_999_999:
 	set(value):
 		maximum_health = value
-		health = min(health, maximum_health)
+		if health > value:
+			health = value
 		health_changed.emit()
 
 var health: int = maximum_health:
 	set(value):
 		health = value
 		health_changed.emit()
+
+
+func apply_damage(amount: int) -> ValueChangeResult:
+	var result = ValueChangeResult.new(amount)
+	if health < amount:
+		result.overflow = amount - health
+		result.applied = health
+		health = 0
+	else:
+		health -= amount
+		result.applied = amount
+		result.overflow = 0
+	damage_taken.emit(result)
+	if is_dead():
+		died.emit()
+	return result
 
 
 func apply_healing(amount: int) -> ValueChangeResult:
@@ -50,19 +67,3 @@ func is_dead() -> bool:
 
 func is_full_health() -> bool:
 	return health == maximum_health
-
-
-func apply_damage(amount: int) -> ValueChangeResult:
-	var result = ValueChangeResult.new(amount)
-	if health < amount:
-		result.overflow = amount - health
-		result.applied = health
-		health = 0
-	else:
-		health -= amount
-		result.applied = amount
-		result.overflow = 0
-	damage_taken.emit(result)
-	if is_dead():
-		died.emit()
-	return result
