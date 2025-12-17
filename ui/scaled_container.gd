@@ -10,6 +10,19 @@ extends Container
 		queue_sort()
 
 
+func _get_minimum_size() -> Vector2:
+	var min_size := Vector2.ZERO
+
+	for child: Control in get_children():
+		if not child.visible:
+			continue
+
+		min_size.x = max(min_size.x, child.get_combined_minimum_size().x)
+		min_size.y = max(min_size.y, child.get_combined_minimum_size().y)
+
+	return min_size
+
+
 func _notification(what: int):
 	match what:
 		NOTIFICATION_SORT_CHILDREN:
