@@ -20,7 +20,7 @@ func _get_minimum_size() -> Vector2:
 		min_size.x = max(min_size.x, child.get_combined_minimum_size().x)
 		min_size.y = max(min_size.y, child.get_combined_minimum_size().y)
 
-	return min_size
+	return min_size * content_scale
 
 
 func _notification(what: int):
