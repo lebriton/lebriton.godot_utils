@@ -2,11 +2,16 @@ class_name TweenUtils
 extends Object
 
 
-static func get_or_create_tween(node: Node, meta_name: StringName = "tween") -> Tween:
+static func get_or_create_tween(
+	node: Node, start_fresh: bool = false, meta_name: StringName = "tween"
+) -> Tween:
 	if node.has_meta(meta_name):
 		var tween := node.get_meta(meta_name)
 		if tween and tween.is_valid():
-			return tween
+			if start_fresh:
+				tween.kill()
+			else:
+				return tween
 
 	var tween := node.create_tween()
 	node.set_meta(meta_name, tween)
