@@ -37,8 +37,8 @@ static func compute_list_offset(
 	gap: float = 0.0
 ) -> Vector2:
 	# Safety: avoid zero-length direction
-	if direction.length() == 0.0:
-		direction = Vector2.RIGHT
+	if direction.length_squared() == 0.0:
+		direction = Vector2.RIGHT  # fallback
 	direction = direction.normalized()
 
 	# Projected advance (how much top-left shifts along direction per item)
