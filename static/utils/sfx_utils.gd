@@ -68,11 +68,14 @@ static func connect_sfx_with_random_pitch(
 
 
 static func play_random_pitch(
-	player: Node, pitch_min: float = 0.975, pitch_max: float = 1.025
+	player: Node,
+	pitch_min: float = 0.975,
+	pitch_max: float = 1.025,
+	from_position: float = 0.0,
 ) -> void:
 	_assert_is_audio_player(player)
 	player.pitch_scale = randf_range(pitch_min, pitch_max)
-	player.play()
+	player.play(from_position)
 
 
 # ------------------------------------------------------------------------------
