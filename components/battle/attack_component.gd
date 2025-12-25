@@ -4,7 +4,6 @@ extends Node
 signal defenders_changed(defenders: Array[HealthComponent])
 
 @export_group("Required")
-@export var character: Character
 
 @export_group("Parameters")
 
