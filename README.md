@@ -1,6 +1,6 @@
 # Bryton's GDScript Utils
 
-![Icon](raw/icon.png)
+![Icon](icon.png)
 
 A collection of utility scripts written in GDScript for Godot 4. This addon contains various helper functions and utilities that I constantly reuse and copy/paste between different projects. Over time, the collection grew large enough to extract into its own addon for better reusability.
 
