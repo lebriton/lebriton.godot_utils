@@ -18,6 +18,10 @@ func attack(whitelist_callable: Callable, damage_callable: Callable):
 		health_component.apply_damage(damage)
 
 
+func _enter_tree():
+	add_to_group("attack_components")
+
+
 func track(health_component: HealthComponent):
 	_defenders.append(health_component)
 	defenders_changed.emit(_defenders)

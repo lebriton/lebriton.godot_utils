@@ -53,6 +53,10 @@ func apply_healing(amount: int) -> ValueChangeResult:
 	return result
 
 
+func _enter_tree():
+	add_to_group("health_components")
+
+
 func get_percentage() -> float:
 	return float(health) / maximum_health
 
