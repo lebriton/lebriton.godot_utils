@@ -77,6 +77,11 @@ static func find_previous_item(
 	return _find_item_in_direction(items, current_item, -1, loop, predicate)
 
 
+static func for_each(array: Array, method: Callable) -> void:
+	for index in range(array.size()):
+		method.call(array[index], index)
+
+
 static func has_duplicates(array: Array) -> bool:
 	var seen := {}
 	for item in array:
