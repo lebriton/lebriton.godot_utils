@@ -24,7 +24,7 @@ static func vec2i_to_2(vector: Vector2i) -> Vector2:
 	return Vector2(vector)
 
 
-static func vec2i_to_3(vector: Vector2i, y: int = 0) -> Vector3:
+static func vec2i_to_3(vector: Vector2i, y: float = 0.0) -> Vector3:
 	return Vector3(vector.x, y, vector.y)
 
 
