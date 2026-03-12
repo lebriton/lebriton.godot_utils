@@ -2,7 +2,11 @@ class_name RectUtils
 extends Object
 
 
-func random_2i_choice(rect: Rect2i, count: int = 1, rng: RandomNumberGenerator = null) -> Array:
+static func random_2i_choice(
+	rect: Rect2i,
+	count: int = 1,
+	rng: RandomNumberGenerator = null,
+) -> Array:
 	var f_randi_range = rng.randi_range if rng else randi_range
 
 	var points = []
