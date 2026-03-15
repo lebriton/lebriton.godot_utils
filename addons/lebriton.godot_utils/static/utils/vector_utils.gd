@@ -38,6 +38,10 @@ static func vec3_to_2i(vector: Vector3) -> Vector2i:
 	return Vector2i(vector.x, vector.z)
 
 
+static func vec3_to_3i(vector: Vector3) -> Vector3i:
+	return Vector3i(vector.x, vector.y, vector.z)
+
+
 static func vec3i_to_2(vector: Vector3i) -> Vector2:
 	return Vector2(vector.x, vector.z)
 
