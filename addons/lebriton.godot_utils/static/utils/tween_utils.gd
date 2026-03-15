@@ -2,11 +2,24 @@ class_name TweenUtils
 extends Object
 
 
+static func delete_tween(
+	node: Node,
+	meta_name: StringName = "tween",
+):
+	if node.has_meta(meta_name):
+		var tween: Tween = node.get_meta(meta_name)
+		if tween:
+			tween.kill()
+		node.remove_meta(meta_name)
+
+
 static func get_or_create_tween(
-	node: Node, start_fresh: bool = false, meta_name: StringName = "tween"
+	node: Node,
+	start_fresh: bool = false,
+	meta_name: StringName = "tween",
 ) -> Tween:
 	if node.has_meta(meta_name):
-		var tween := node.get_meta(meta_name)
+		var tween: Tween = node.get_meta(meta_name)
 		if tween and tween.is_valid():
 			if start_fresh:
 				tween.kill()
