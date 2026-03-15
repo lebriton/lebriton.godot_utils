@@ -8,7 +8,7 @@ static func get_gridmap_cell_position_from_screen_position(
 	screen_point: Vector2,
 	direct_space_state: PhysicsDirectSpaceState3D,
 	sentinel: Vector3i,
-	offset_factor: float = 0.25,
+	offset_factor: float = 0.0,
 ) -> Vector3i:
 	var from := camera.project_ray_origin(screen_point)
 	var to := camera.project_ray_normal(screen_point) * camera.far
@@ -19,24 +19,24 @@ static func get_gridmap_cell_position_from_screen_position(
 	if not result or result.collider != grid_map:
 		return sentinel
 
-	# When a mesh extends outside its GridMap cell, the ray hit position may lie
-	# just outside the intended cell. Subtracting a small offset along the hit normal
-	# pushes the point slightly "inside" the mesh, so local_to_map() maps it to the
-	# correct cell. The factor is arbitrary and may need tweaking depending on how far
-	# the mesh sticks out of its cell.
+	# If the mesh extends beyond its GridMap cell, the ray hit position may fall outside
+	# the intended cell. Applying a small offset along the hit normal moves the point slightly
+	# "inside" the mesh, ensuring local_to_map() returns the correct cell.
 	var offset = grid_map.cell_size * offset_factor
 	var local_pos = grid_map.to_local(result.position - result.normal * offset)
 
-	if not grid_map.cell_center_x:
+	# Adjust for cell_center flags to align the origin point for each axis
+	if grid_map.cell_center_x:
 		local_pos.x -= grid_map.cell_size.x / 2
-	if not grid_map.cell_center_y:
+	if grid_map.cell_center_y:
 		local_pos.y -= grid_map.cell_size.y / 2
-	if not grid_map.cell_center_z:
+	if grid_map.cell_center_z:
 		local_pos.z -= grid_map.cell_size.z / 2
 
-	var cell_position := grid_map.local_to_map(local_pos)
+	# Apply a minor positional offset to align with the grid cell's origin
+	local_pos += Vector3(0.5, 0, 0.5)
 
-	return cell_position
+	return grid_map.local_to_map(local_pos)
 
 
 static func project_on_plane(camera: Camera3D, plane: Plane, screen_point: Vector2) -> Variant:
