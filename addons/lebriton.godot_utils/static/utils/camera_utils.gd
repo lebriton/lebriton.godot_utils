@@ -26,6 +26,14 @@ static func get_gridmap_cell_position_from_screen_position(
 	# the mesh sticks out of its cell.
 	var offset = grid_map.cell_size.length() * offset_factor
 	var local_pos = grid_map.to_local(result.position - result.normal * offset)
+
+	if not grid_map.cell_center_x:
+		local_pos.x -= grid_map.cell_size.x / 2
+	if not grid_map.cell_center_y:
+		local_pos.y -= grid_map.cell_size.y / 2
+	if not grid_map.cell_center_z:
+		local_pos.z -= grid_map.cell_size.z / 2
+
 	var cell_position := grid_map.local_to_map(local_pos)
 
 	return cell_position
