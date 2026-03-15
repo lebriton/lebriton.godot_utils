@@ -2,7 +2,7 @@ class_name CameraUtils
 extends Object
 
 
-func get_gridmap_cell_position_from_screen_position(
+static func get_gridmap_cell_position_from_screen_position(
 	camera: Camera3D,
 	grid_map: GridMap,
 	screen_point: Vector2,
