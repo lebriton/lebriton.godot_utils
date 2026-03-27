@@ -2,7 +2,7 @@ class_name ObjectUtils
 extends Object
 
 
-static func swap_node_value_and_update_signals(
+static func swap_value_and_update_signals(
 	object: Object,
 	property: StringName,
 	new_value: Node,
@@ -12,6 +12,7 @@ static func swap_node_value_and_update_signals(
 	var previous_value = object.get(property)
 	if previous_value:
 		SignalUtils.disconnect_signals(previous_value, signal_handlers, bind_node)
+
 	object.set(property, new_value)
 
 	if new_value:

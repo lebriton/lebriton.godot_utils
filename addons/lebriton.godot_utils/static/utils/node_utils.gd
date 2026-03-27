@@ -47,22 +47,6 @@ static func remove_from_parent(node: Node) -> Node:
 	return node
 
 
-static func swap_node_value_and_update_signals(
-	object: Object,
-	property: StringName,
-	new_value: Node,
-	signal_handlers: Dictionary,
-	bind_node: bool = false,
-):
-	var previous_value = object.get(property)
-	if previous_value:
-		SignalUtils.disconnect_signals(previous_value, signal_handlers, bind_node)
-	object.set(property, new_value)
-
-	if new_value:
-		SignalUtils.connect_signals(new_value, signal_handlers, bind_node)
-
-
 static func wait_for_node_ready(node: Node):
 	# https://github.com/godotengine/godot-proposals/issues/325#issuecomment-1643230075
 	if not node.is_node_ready():
