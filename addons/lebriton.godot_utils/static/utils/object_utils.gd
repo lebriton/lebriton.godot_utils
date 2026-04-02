@@ -11,7 +11,7 @@ static func swap_value_and_update_signals(
 ):
 	var previous_value = object.get(property)
 	if previous_value:
-		SignalUtils.disconnect_signals(previous_value, signal_handlers, bind_node)
+		SignalUtils.disconnect_signals(previous_value, signal_handlers)
 
 	object.set(property, new_value)
 
