@@ -2,6 +2,16 @@ class_name ArrayUtils
 extends Object
 
 
+# This utility mimics Python's enumerate().
+# It is less efficient than a classic indexed loop because it allocates a new array,
+# but it significantly improves readability and maintainability of iteration code.
+static func enumerate(array: Array):
+	var result = []
+	for i in range(array.size()):
+		result.append({"index": i, "value": array[i]})
+	return result
+
+
 static func enumerate_duplicates(strings: Array) -> Array[String]:
 	var counts := {}
 	var total_counts := {}
