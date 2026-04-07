@@ -2,7 +2,7 @@ class_name ArrayUtils
 extends Object
 
 
-func back(array: Array):
+static func back(array: Array) -> Variant:
 	# This function is a safe wrapper that helps avoid runtime errors
 	# by preventing access to an empty array.
 	return null if array.is_empty() else array.back()
@@ -81,7 +81,7 @@ static func for_each(array: Array, method: Callable) -> void:
 		method.call(array[index], index)
 
 
-func front(array: Array):
+static func front(array: Array) -> Variant:
 	# This function is a safe wrapper that helps avoid runtime errors
 	# by preventing access to an empty array.
 	return null if array.is_empty() else array.front()
