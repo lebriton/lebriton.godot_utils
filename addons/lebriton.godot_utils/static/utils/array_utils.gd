@@ -2,6 +2,12 @@ class_name ArrayUtils
 extends Object
 
 
+func back(array: Array):
+	# This function is a safe wrapper that helps avoid runtime errors
+	# by preventing access to an empty array.
+	return null if array.is_empty() else array.back()
+
+
 # This utility mimics Python's enumerate().
 # It is less efficient than a classic indexed loop because it allocates a new array,
 # but it significantly improves readability and maintainability of iteration code.
@@ -73,6 +79,12 @@ static func find_previous_item(
 static func for_each(array: Array, method: Callable) -> void:
 	for index in range(array.size()):
 		method.call(array[index], index)
+
+
+func front(array: Array):
+	# This function is a safe wrapper that helps avoid runtime errors
+	# by preventing access to an empty array.
+	return null if array.is_empty() else array.front()
 
 
 static func has_duplicates(array: Array) -> bool:
