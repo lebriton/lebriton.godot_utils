@@ -7,8 +7,11 @@ extends Object
 # but it significantly improves readability and maintainability of iteration code.
 static func enumerate(array: Array):
 	var result = []
-	for i in range(array.size()):
-		result.append({"index": i, "value": array[i]})
+	var size = array.size()
+
+	for i in range(size):
+		result.append({"index": i, "value": array[i], "is_first": i == 0, "is_last": i == size - 1})
+
 	return result
 
 
