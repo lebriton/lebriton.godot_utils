@@ -2,12 +2,6 @@ class_name ArrayUtils
 extends Object
 
 
-static func back(array: Array) -> Variant:
-	# This function is a safe wrapper that helps avoid runtime errors
-	# by preventing access to an empty array.
-	return null if array.is_empty() else array.back()
-
-
 # This utility mimics Python's enumerate().
 # It is less efficient than a classic indexed loop because it allocates a new array,
 # but it significantly improves readability and maintainability of iteration code.
@@ -81,12 +75,6 @@ static func for_each(array: Array, method: Callable) -> void:
 		method.call(array[index], index)
 
 
-static func front(array: Array) -> Variant:
-	# This function is a safe wrapper that helps avoid runtime errors
-	# by preventing access to an empty array.
-	return null if array.is_empty() else array.front()
-
-
 static func has_duplicates(array: Array) -> bool:
 	var seen := {}
 	for item in array:
@@ -98,6 +86,24 @@ static func has_duplicates(array: Array) -> bool:
 
 static func remove_freed_items(array: Array) -> Array:
 	return array.filter(func(item): return is_instance_valid(item))
+
+
+static func safe_back(array: Array) -> Variant:
+	# This function is a safe wrapper that helps avoid runtime errors
+	# by preventing access to an empty array.
+	return null if array.is_empty() else array.back()
+
+
+static func safe_front(array: Array) -> Variant:
+	# This function is a safe wrapper that helps avoid runtime errors
+	# by preventing access to an empty array.
+	return null if array.is_empty() else array.front()
+
+
+static func safe_get(array: Array, index: int) -> Variant:
+	# This function is a safe wrapper that helps avoid runtime errors
+	# by preventing access to an empty array.
+	return null if array.is_empty() else array.get(index)
 
 
 static func suffix_duplicates_with_index(strings: Array) -> Array[String]:
