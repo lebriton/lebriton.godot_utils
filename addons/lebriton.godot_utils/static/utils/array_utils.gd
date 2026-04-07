@@ -12,26 +12,6 @@ static func enumerate(array: Array):
 	return result
 
 
-static func enumerate_duplicates(strings: Array) -> Array[String]:
-	var counts := {}
-	var total_counts := {}
-	var result: Array[String] = []
-
-	# First, count total occurrences of each string
-	for s in strings:
-		total_counts[s] = total_counts.get(s, 0) + 1
-
-	# Then, enumerate duplicates
-	for s in strings:
-		counts[s] = counts.get(s, 0) + 1
-		if total_counts[s] > 1:
-			result.append("%s %d" % [s, counts[s]])
-		else:
-			result.append(s)
-
-	return result
-
-
 static func _find_item_in_direction(
 	items: Array,
 	current_item: Variant,
@@ -103,3 +83,23 @@ static func has_duplicates(array: Array) -> bool:
 
 static func remove_freed_items(array: Array) -> Array:
 	return array.filter(func(item): return is_instance_valid(item))
+
+
+static func suffix_duplicates_with_index(strings: Array) -> Array[String]:
+	var counts := {}
+	var total_counts := {}
+	var result: Array[String] = []
+
+	# First, count total occurrences of each string
+	for s in strings:
+		total_counts[s] = total_counts.get(s, 0) + 1
+
+	# Then, enumerate duplicates
+	for s in strings:
+		counts[s] = counts.get(s, 0) + 1
+		if total_counts[s] > 1:
+			result.append("%s %d" % [s, counts[s]])
+		else:
+			result.append(s)
+
+	return result
