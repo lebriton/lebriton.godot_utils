@@ -101,9 +101,13 @@ static func safe_front(array: Array) -> Variant:
 
 
 static func safe_get(array: Array, index: int) -> Variant:
-	# This function is a safe wrapper that helps avoid runtime errors
-	# by preventing access to an empty array.
-	return null if array.is_empty() else array.get(index)
+	if array.is_empty():
+		return null
+
+	if index < 0 or index >= array.size():
+		return null
+
+	return array[index]
 
 
 static func suffix_duplicates_with_index(strings: Array) -> Array[String]:
