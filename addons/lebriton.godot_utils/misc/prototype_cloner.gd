@@ -1,6 +1,8 @@
 class_name PrototypeCloner
 extends Node
 
+signal clone_created(copy: Node)
+
 @export_group("Required")
 @export var prototype: Node
 @export var container: Node
@@ -27,6 +29,9 @@ func clone() -> Node:
 	var copy = prototype.duplicate()
 	container.add_child(copy)
 	_copies.append(copy)
+
+	clone_created.emit(copy)
+
 	return copy
 
 
