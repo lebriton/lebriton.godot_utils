@@ -96,9 +96,9 @@ static func attach_and_connect_sfx_random_pitch(
 	node: Node,
 	audio_stream: AudioStream,
 	sig: Signal,
-	bus: StringName = "Master",
 	pitch_min: float = 0.975,
 	pitch_max: float = 1.025,
+	bus: StringName = "Master",
 ) -> AudioStreamPlayer:
 	var player = attach_sfx(node, audio_stream, bus)
 	connect_sfx_with_random_pitch(player, sig, pitch_min, pitch_max)
@@ -120,9 +120,9 @@ static func attach_and_connect_sfx_2d_random_pitch(
 	node: Node,
 	audio_stream: AudioStream,
 	sig: Signal,
-	bus: StringName = "Master",
 	pitch_min: float = 0.975,
 	pitch_max: float = 1.025,
+	bus: StringName = "Master",
 ) -> AudioStreamPlayer2D:
 	var player = attach_sfx_2d(node, audio_stream, bus)
 	connect_sfx_with_random_pitch(player, sig, pitch_min, pitch_max)
@@ -144,9 +144,9 @@ static func attach_and_connect_sfx_3d_random_pitch(
 	node: Node,
 	audio_stream: AudioStream,
 	sig: Signal,
-	bus: StringName = "Master",
 	pitch_min: float = 0.975,
 	pitch_max: float = 1.025,
+	bus: StringName = "Master",
 ) -> AudioStreamPlayer3D:
 	var player = attach_sfx_3d(node, audio_stream, bus)
 	connect_sfx_with_random_pitch(player, sig, pitch_min, pitch_max)
