@@ -4,3 +4,7 @@ extends Object
 
 static func bind_front(callable: Callable, ...args: Array):
 	return func(...rest_args): return callable.callv(args + rest_args)
+
+
+static func is_not_null(value: Variant) -> bool:
+	return value != null
