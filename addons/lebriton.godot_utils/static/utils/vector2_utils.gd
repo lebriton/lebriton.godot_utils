@@ -2,7 +2,7 @@ class_name Vector2Utils
 extends Object
 
 
-static func vector_to_grid_dir(direction: Vector2) -> Vector2:
+static func vector_to_grid_dir(direction: Vector2) -> Vector2i:
 	if direction == Vector2.ZERO:
 		return Vector2.ZERO
 
@@ -10,7 +10,7 @@ static func vector_to_grid_dir(direction: Vector2) -> Vector2:
 	var step = PI / 4.0  # 45°
 
 	var snapped = round(angle / step) * step
-	return Vector2(cos(snapped), sin(snapped)).round()
+	return Vector2i(round(cos(snapped)), round(sin(snapped)))
 
 
 static func smooth_to(
