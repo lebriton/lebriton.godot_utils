@@ -10,6 +10,12 @@ static func get_or_create_meta(obj: Object, name: StringName, default_factory: C
 	return value
 
 
+static func safe_get_meta(obj: Object, name: StringName, default: Variant = null) -> Variant:
+	if obj.has_meta(name):
+		return obj.get_meta(name, default)
+	return null
+
+
 static func set_dict(obj: Object, dict: Dictionary):
 	for meta_name in dict:
 		var meta_value = dict[meta_name]
