@@ -42,6 +42,12 @@ static func instantiate(parent: Node, packed_scene: PackedScene) -> Variant:
 	return scene
 
 
+static func get_node_path(node: Node) -> NodePath:
+	if not node:
+		return NodePath("")
+	return node.get_path()
+
+
 static func remove_from_parent(node: Node) -> Node:
 	node.get_parent().remove_child(node)
 	return node
