@@ -84,6 +84,17 @@ static func has_duplicates(array: Array) -> bool:
 	return false
 
 
+static func index_1d_to_2d(index: int, width: int) -> Vector2i:
+	var x := index % width
+	var y := index / width
+
+	return Vector2i(x, y)
+
+
+static func index_2d_to_1d(coordinates: Vector2i, width: int) -> int:
+	return coordinates.y * width + coordinates.x
+
+
 static func remove_freed_items(array: Array) -> Array:
 	return array.filter(func(item): return is_instance_valid(item))
 
