@@ -13,7 +13,7 @@ const PUNCTUATION_CHARS := [".", "!", "?", ",", ";", ":"]
 
 @export_group("Parameters")
 ## Characters per second for typewriter text effect
-@export_range(0.001, 100.0, 0.001, "suffix:s") var cps := DEFAULT_CPS
+@export_range(0.001, 1000.0, 0.001, "suffix:s") var cps := DEFAULT_CPS
 ## Delay after punctuation characters (seconds)
 @export_range(0.001, 10.0, 0.001, "suffix:s") var punctuation_delay := DEFAULT_PUNCTUATION_DELAY
 @export var autostart := false
